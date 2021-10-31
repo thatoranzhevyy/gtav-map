@@ -44,20 +44,20 @@ export default {
         {
           name: 'Спутник',
           visible: true,
-          url: 'http://localhost:3000/tiles/satellite/{z}-{x}_{y}.png',
+          url: 'https://gtav-map.netlify.app/tiles/satellite/{z}-{x}_{y}.png',
         },
         {
           name: 'Атлас',
           visible: false,
-          url: 'http://localhost:3000/tiles/atlas/{z}-{x}_{y}.png',
+          url: 'https://gtav-map.netlify.app/tiles/atlas/{z}-{x}_{y}.png',
         },
         {
           name: 'Дорога',
           visible: false,
-          url: 'http://localhost:3000/tiles/road/{z}-{x}_{y}.png',
+          url: 'https://gtav-map.netlify.app/tiles/road/{z}-{x}_{y}.png',
         },
       ],
-      url: 'http://localhost:3000/tiles/road/{z}-{x}_{y}.png',
+      url: 'https://gtav-map.netlify.app/tiles/road/{z}-{x}_{y}.png',
       center: [61.61385787081098, -124.4374303892255],
       maxBounds: latLngBounds([
         [50.77815527465925, -59.15039062500001],
