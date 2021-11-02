@@ -1,11 +1,12 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
+
   target: 'static',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Amazing GTA 5 RP',
+    title: 'GTA 5 - map',
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
@@ -14,7 +15,6 @@ export default {
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-      // {rel: 'stylesheet', href: 'https://unpkg.com/leaflet@1.6.0/dist/leaflet.css',},
     ]
   },
 
@@ -35,11 +35,6 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
-    // https://go.nuxtjs.dev/content
-    '@nuxt/content',
     'nuxt-leaflet',
   ],
 

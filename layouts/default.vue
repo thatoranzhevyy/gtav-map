@@ -6,9 +6,6 @@
           <Nuxt class="flex overflow-y-auto flex-1"/>
         </main>
       </Pane>
-<!--      <pane style="height: auto">-->
-<!--        <AppFooter/>-->
-<!--      </pane>-->
     </splitpanes>
   </div>
 </template>
@@ -23,8 +20,3 @@ export default {
   }
 }
 </script>
-<style>
-.no-splitter {
-  /*@apply pointer-events-none;*/
-}
-</style>

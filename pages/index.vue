@@ -23,9 +23,10 @@
             :url="tileProvider.url"
             layer-type="base"></l-tile-layer>
           <icones
-            v-for="marker in markers"
+            v-for="(marker, index) in markers"
             :key="marker.id"
             :marker="marker"
+            @click="removeMarker(index)"
           >
           </icones>
         </l-map>
@@ -67,31 +68,31 @@ export default {
       minZoom: 3,
       maxZoom: 7,
       markers: [
-        {
-          id: 1,
-          imageUrl: 'https://img.icons8.com/material/24/000000/us-dollar-circled--v1.png',
-          coordinates: [63.966318784384256, -130.42968750000003]
-        },
-        {
-          id: 2,
-          imageUrl: 'https://img.icons8.com/material/24/000000/car.png',
-          coordinates: [61.386197865704695, -123.37646484375001]
-        },
-        {
-          id: 3,
-          imageUrl: 'https://img.icons8.com/material/24/000000/police-car--v1.png',
-          coordinates: [59.366793908532124, -133.08837890625003]
-        },
-        {
-          id: 4,
-          imageUrl: 'https://img.icons8.com/material/24/000000/shopping-cart--v1.png',
-          coordinates: [62.2679226294176, -118.25683593750001]
-        },
-        {
-          id: 5,
-          imageUrl: 'https://img.icons8.com/material/24/000000/hospital.png',
-          coordinates: [59.33318942659219, -122.67333984375001]
-        },
+        // {
+        //   id: 1,
+        //   imageUrl: 'https://img.icons8.com/material/24/000000/us-dollar-circled--v1.png',
+        //   coordinates: [63.966318784384256, -130.42968750000003]
+        // },
+        // {
+        //   id: 2,
+        //   imageUrl: 'https://img.icons8.com/material/24/000000/car.png',
+        //   coordinates: [61.386197865704695, -123.37646484375001]
+        // },
+        // {
+        //   id: 3,
+        //   imageUrl: 'https://img.icons8.com/material/24/000000/police-car--v1.png',
+        //   coordinates: [59.366793908532124, -133.08837890625003]
+        // },
+        // {
+        //   id: 4,
+        //   imageUrl: 'https://img.icons8.com/material/24/000000/shopping-cart--v1.png',
+        //   coordinates: [62.2679226294176, -118.25683593750001]
+        // },
+        // {
+        //   id: 5,
+        //   imageUrl: 'https://img.icons8.com/material/24/000000/hospital.png',
+        //   coordinates: [59.33318942659219, -122.67333984375001]
+        // },
       ]
     }
   },
@@ -108,7 +109,6 @@ export default {
         imageUrl: 'https://img.icons8.com/material/24/000000/marker.png',
         coordinates: event.latlng
       });
-      // console.log(event.latlng)
     },
     removeMarker(index) {
       this.markers.splice(index, 1);
