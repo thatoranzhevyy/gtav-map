@@ -1,37 +1,37 @@
 <template>
-    <div id="map-wrap">
-      <client-only>
-        <l-map
-          class="map"
-          :zoom="zoom"
-          :center="center"
-          :minZoom="minZoom"
-          :maxZoom="maxZoom"
-          :maxBounds="maxBounds"
-          :options="{zoomControl: false}"
-          @update:zoom="zoomUpdated"
-          @update:center="centerUpdated"
-          @click="addMarker"
+  <div id="map-wrap">
+    <client-only>
+      <l-map
+        class="map"
+        :zoom="zoom"
+        :center="center"
+        :minZoom="minZoom"
+        :maxZoom="maxZoom"
+        :maxBounds="maxBounds"
+        :options="{zoomControl: false}"
+        @update:zoom="zoomUpdated"
+        @update:center="centerUpdated"
+        @click="addMarker"
+      >
+        <l-control-layers position="topright"></l-control-layers>
+        <l-control-zoom position="topright"></l-control-zoom>
+        <l-tile-layer
+          v-for="tileProvider in tileProviders"
+          :key="tileProvider.name"
+          :name="tileProvider.name"
+          :visible="tileProvider.visible"
+          :url="tileProvider.url"
+          layer-type="base"></l-tile-layer>
+        <icones
+          v-for="(marker, index) in markers"
+          :key="marker.id"
+          :marker="marker"
+          @click="removeMarker(index)"
         >
-          <l-control-layers position="topright"></l-control-layers>
-          <l-control-zoom position="topright"></l-control-zoom>
-          <l-tile-layer
-            v-for="tileProvider in tileProviders"
-            :key="tileProvider.name"
-            :name="tileProvider.name"
-            :visible="tileProvider.visible"
-            :url="tileProvider.url"
-            layer-type="base"></l-tile-layer>
-          <icones
-            v-for="(marker, index) in markers"
-            :key="marker.id"
-            :marker="marker"
-            @click="removeMarker(index)"
-          >
-          </icones>
-        </l-map>
-      </client-only>
-    </div>
+        </icones>
+      </l-map>
+    </client-only>
+  </div>
 </template>
 
 <script>
@@ -39,6 +39,16 @@ import {latLngBounds, latLng} from "leaflet";
 import 'leaflet/dist/leaflet.css';
 
 export default {
+  head: {
+    title: 'GTA 5 - map',
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'GTA 5 map'
+      }
+    ],
+  },
   data() {
     return {
       tileProviders: [
